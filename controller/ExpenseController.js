@@ -2,6 +2,7 @@ const express = require('express');
 const knex = require('knex')(require('../knexfile'));
 const router = express.Router();
 const fs = require('fs');
+const { createWorker } = require('tesseract.js');
 
 require('dotenv').config();
 function getExpenseList(req, res) {
@@ -34,14 +35,15 @@ function getExpense(req, res) {
 function createNewExpense(req, res) {
 
     let obj = { ...req.body, receipt: `/images/${req.file.filename}` }
-    if (!req.body.expense || !req.body.amount || !req.file || !req.body.date || !req.body.category) {
+    if (!req.body.amount || !req.file || !req.body.date || !req.body.category) {
         res.status(400).json({ message: `Please make sure to provide correct data` });
     }
     else {
         knex('expenses')
             .insert(obj)
             .then(() => {
-                res.status(201).json({ message: `Pass` });
+                res.status(201).json({ message: `Create requeset pass` });
+                console.log("In RIGHT");
             });
     }
 
@@ -84,7 +86,32 @@ function deleteExpense(req, res) {
 
 }
 
+function getReceiptData(req, res) {
+    // Tesseract.recognize(
+    //     `http://localhost:5050/images/${req.file.filename}`,
+    //     'eng',
+    //     { logger: m => console.log(m) }
+    // ).then(({ data: { text } }) => {
+    //     res.send(text)
+    // })
 
+    const worker = createWorker({
+        logger: m => console.log(m)
+    });
+
+    (async () => {
+        await worker.load();
+        await worker.loadLanguage('eng');
+        await worker.initialize('eng');
+        const { data: { text } } = await worker.recognize(`http://localhost:5050/images/${req.file.filename}`);
+        res.send(text)
+
+        const filePath = `${process.env.FILE_PATH}/images/${req.file.filename}`;
+        console.log(filePath)
+        fs.unlinkSync(filePath);
+        await worker.terminate();
+    })();
+}
 
 
 module.exports = {
@@ -92,5 +119,6 @@ module.exports = {
     createNewExpense,
     deleteExpense,
     editExpense,
-    getExpense
+    getExpense,
+    getReceiptData
 }
