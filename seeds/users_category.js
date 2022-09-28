@@ -11,7 +11,13 @@ exports.seed = function (knex) {
           {
             id: 1,
             avatar_url: "https//:locoalhost",
-            username: "Kevin",
+            username: "kai0716",
+            password: "123456"
+          },
+          {
+            id: 2,
+            avatar_url: "https//:locoalhost",
+            username: "kai",
             password: "123456"
           }
         ]
@@ -22,15 +28,50 @@ exports.seed = function (knex) {
       return knex('category').insert(
         [
           {
-            id: 1,
             title: "Entertainment",
             user_id: 1
           },
           {
-            id: 2,
-            title: "Income",
+            title: "Food and Drinks",
+            user_id: 1
+          },
+
+          {
+            title: "Housing",
+            user_id: 1
+          },
+
+          {
+            title: "Transportation",
+            user_id: 1
+          },
+          {
+            title: "Entertainment",
+            user_id: 2
+          },
+          {
+            title: "Food and Drinks",
+            user_id: 2
+          },
+
+          {
+            title: "Housing",
+            user_id: 2
+          },
+
+          {
+            title: "Transportation",
+            user_id: 2
+          },
+          {
+            title: "Lifestyle",
+            user_id: 2
+          },
+          {
+            title: "Lifestyle",
             user_id: 1
           }
+
         ]
 
       );
@@ -45,40 +86,145 @@ exports.seed = function (knex) {
         [
           {
             user_id: 1,
-            amount: 10.99,
-            note: '',
-            receipt: '/images/receipt-1663880651216-14689012',
-            category: 'rent',
+            amount: 200,
+            note: 'Bus monthly pass',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Transportation',
+            date: new Date(2022, 7, 29).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0,
+            pst: 0
+          },
+          {
+            user_id: 1,
+            amount: 172.19,
+            note: 'Buy clothes at Tommy',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Lifestyle',
+            date: new Date(2022, 8, 15).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 8.61,
+            pst: 12.53
+          },
+          {
+            user_id: 1,
+            amount: 10.56,
+            note: 'buy medicine',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Lifestyle',
+            date: new Date(2022, 7, 25).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0.53,
+            pst: 0.74
+          },
+          {
+            user_id: 1,
+            amount: 45.46,
+            note: 'Buy sushi',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
             date: caDate.toISOString().slice(0, 19).replace('T', ' '),
-            recurring: 'Never'
+            gst: 2.27,
+            pst: 3.18
+          },
+
+          {
+            user_id: 1,
+            amount: 455.46,
+            note: 'Dentist',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Lifestyle',
+            date: new Date(2022, 7, 25).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0,
+            pst: 0
           },
           {
             user_id: 1,
             amount: 100.99,
-            note: 'Buy clothes at GAP',
-            receipt: '/images/receipt-1663880651216-14689012',
-            category: 'Cloth',
-            date: caDate.toISOString().slice(0, 19).replace('T', ' '),
-            recurring: 'Never'
+            note: 'Electricity bill',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Housing',
+            date: new Date(2022, 8, 23).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 5.05,
+            pst: 3.03
           },
           {
             user_id: 1,
-            amount: 1000.99,
-            note: '',
-            receipt: '/images/receipt-1663880651216-14689012',
-            category: 'Technology',
-            date: caDate.toISOString().slice(0, 19).replace('T', ' '),
-            recurring: 'Never'
+            amount: 82.99,
+            note: 'Gas',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Housing',
+            date: new Date(2022, 5, 12).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 4.15,
+            pst: 0
           },
           {
             user_id: 1,
-            amount: 1000.99,
-            note: '',
-            receipt: '/images/receipt-1663880651216-14689012',
-            category: 'Bill',
+            amount: 450,
+            note: 'Nintando Switch',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Entertainment',
+            date: new Date(2022, 8, 26).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 22.5,
+            pst: 31.5
+          },
+          {
+            user_id: 1,
+            amount: 230,
+            note: 'Family party dinner',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2022, 8, 20).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 11.5,
+            pst: 16.1
+          },
+          {
+            user_id: 1,
+            amount: 5.53,
+            note: 'Milk, bread',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2022, 8, 20).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0.27,
+            pst: 0.39
+          },
+          {
+            user_id: 2,
+            amount: 200,
+            note: 'Water bill',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Housing',
+            date: new Date(2022, 8, 22).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 10,
+            pst: 0
+          },
+          {
+            user_id: 2,
+            amount: 3.53,
+            note: 'grocery, candy',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2021, 8, 1).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0.16,
+            pst: 0.22
+          },
+          {
+            user_id: 1,
+            amount: 40.53,
+            note: 'Uber Taxi',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Transportation',
+            date: new Date(2021, 8, 1).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 0,
+            pst: 0
+          },
+          {
+            user_id: 1,
+            amount: 28.43,
+            note: 'Bubble tea',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
             date: caDate.toISOString().slice(0, 19).replace('T', ' '),
-            recurring: 'Never'
-          }
+            gst: 1.42,
+            pst: 0
+          },
 
         ]
 

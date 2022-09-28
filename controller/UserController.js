@@ -13,6 +13,7 @@ function getUserList(req, res) {
     });
 
 }
+
 function getUser(req, res) {
     knex('users')
         .where({ id: req.params.userid })

@@ -29,6 +29,21 @@ function getCategory(req, res) {
 
 }
 
+function getUserCategoryList(req, res) {
+    knex('category')
+        .where({ user_id: req.params.userid })
+        .then((data) => {
+            if (data.length === 0) {
+                res.status(404).json({
+                    status: 404,
+                    message: 'no expense found with that id',
+                });
+            }
+            res.json(data);
+        });
+
+}
+
 function createNewCategory(req, res) {
     console.log("running");
 
@@ -54,5 +69,5 @@ function deleteCategory(req, res) {
 
 
 module.exports = {
-    getCategoryList, getCategory, createNewCategory, deleteCategory, editCategory
+    getCategoryList, getCategory, createNewCategory, deleteCategory, editCategory, getUserCategoryList
 }
