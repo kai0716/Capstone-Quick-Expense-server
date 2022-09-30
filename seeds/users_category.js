@@ -161,10 +161,11 @@ exports.seed = function (knex) {
             note: 'Nintando Switch',
             receipt: '/images/receipt-1.jpg',
             category: 'Entertainment',
-            date: new Date(2022, 8, 26).toISOString().slice(0, 19).replace('T', ' '),
+            date: new Date(2022, 8, 20).toISOString().slice(0, 19).replace('T', ' '),
             gst: 22.5,
             pst: 31.5
           },
+
           {
             user_id: 1,
             amount: 230,
@@ -181,7 +182,7 @@ exports.seed = function (knex) {
             note: 'Milk, bread',
             receipt: '/images/receipt-1.jpg',
             category: 'Food and Drinks',
-            date: new Date(2022, 8, 20).toISOString().slice(0, 19).replace('T', ' '),
+            date: new Date(2022, 8, 27).toISOString().slice(0, 19).replace('T', ' '),
             gst: 0.27,
             pst: 0.39
           },
@@ -201,7 +202,7 @@ exports.seed = function (knex) {
             note: 'grocery, candy',
             receipt: '/images/receipt-1.jpg',
             category: 'Food and Drinks',
-            date: new Date(2021, 8, 1).toISOString().slice(0, 19).replace('T', ' '),
+            date: new Date(2021, 8, 27).toISOString().slice(0, 19).replace('T', ' '),
             gst: 0.16,
             pst: 0.22
           },
@@ -211,8 +212,38 @@ exports.seed = function (knex) {
             note: 'Uber Taxi',
             receipt: '/images/receipt-1.jpg',
             category: 'Transportation',
-            date: new Date(2021, 8, 1).toISOString().slice(0, 19).replace('T', ' '),
+            date: new Date(2021, 5, 1).toISOString().slice(0, 19).replace('T', ' '),
             gst: 0,
+            pst: 0
+          },
+          {
+            user_id: 1,
+            amount: 10.43,
+            note: 'Bubble tea apple flavor',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2022, 8, 26).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 1.42,
+            pst: 0
+          },
+          {
+            user_id: 1,
+            amount: 10.43,
+            note: 'Bubble tea peach flavor',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2022, 8, 27).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 1.42,
+            pst: 0
+          },
+          {
+            user_id: 1,
+            amount: 10.43,
+            note: 'Bubble tea orange flavor',
+            receipt: '/images/receipt-1.jpg',
+            category: 'Food and Drinks',
+            date: new Date(2022, 8, 25).toISOString().slice(0, 19).replace('T', ' '),
+            gst: 1.42,
             pst: 0
           },
           {
@@ -224,7 +255,7 @@ exports.seed = function (knex) {
             date: caDate.toISOString().slice(0, 19).replace('T', ' '),
             gst: 1.42,
             pst: 0
-          },
+          }
 
         ]
 

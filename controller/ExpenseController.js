@@ -127,7 +127,7 @@ function getReceiptData(req, res) {
         await worker.initialize('eng');
         const { data: { text } } = await worker.recognize(`http://localhost:5050/images/${req.file.filename}`);
         res.send(text)
-
+        console.log(text);
         const filePath = `${process.env.FILE_PATH}/images/${req.file.filename}`;
         // console.log(filePath)
         fs.unlinkSync(filePath);
