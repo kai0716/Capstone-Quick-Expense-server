@@ -2,7 +2,7 @@
 ## For Mac only
 ### Step1: Clone the application
 ### Step2: Run `npm i` in the terminal to install the package
-### Step3: Ask me for a pulic folder and put it into the `src` folder
+### Step3: Ask me for a public folder and put it into the `src` folder
 ### Step4: Create a `.env` file
 ### Step5: Inside the `.env` file, add:
 * Note: FILE_PATH should be your entire path from Users to the public folder
