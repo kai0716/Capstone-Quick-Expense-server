@@ -6,7 +6,6 @@
 ### Step4: Create a `.env` file
 ### Step5: Inside the `.env` file, add:
 * Note: FILE_PATH should be your entire path from Users to the public folder
-  * CLIENT_URL=http://localhost:8080
   * PORT =5050
   * FILE_PATH='/Users/username/Desktop/.../kaijian-zhang-capstone/server/public'
 ### Step6: Open your MySQL workbench and create a new schema 
