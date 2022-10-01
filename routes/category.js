@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 router.use(express.json());
-const { getCategoryList, getCategory, createNewCategory, deleteCategory, editCategory } = require("../controller/CategoryController");
+const { getCategoryList, getCategory, createNewCategory, deleteCategory, editCategory, getUserCategoryList } = require("../controller/CategoryController");
 
 
 router.route("/")
@@ -13,4 +13,6 @@ router.route("/:categoryid")
     .delete(deleteCategory)
     .put(editCategory)
 
+router.route("/user/:userid")
+    .get(getUserCategoryList)
 module.exports = router;

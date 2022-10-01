@@ -8,11 +8,12 @@ exports.up = function (knex) {
             table.increments('id').primary();
             table.integer('user_id').unsigned().notNullable();
             table.decimal("amount").notNullable()
-            table.string("note");
+            table.decimal("pst").notNullable()
+            table.decimal("gst").notNullable()
+            table.string("note", 2000);
             table.string("receipt");
             table.string("category").notNullable();
             table.dateTime('date').notNullable();
-            table.string('recurring').notNullable()
             table
                 .foreign('user_id')
                 .references('id')
@@ -28,7 +29,6 @@ exports.up = function (knex) {
             table.string("note");
             table.string("category").notNullable();
             table.dateTime('date').notNullable();
-            table.string('recurring').notNullable()
             table
                 .foreign('user_id')
                 .references('id')

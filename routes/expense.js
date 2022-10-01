@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 router.use(express.json());
-const { getExpenseList, getExpense, deleteExpense, editExpense, createNewExpense } = require("../controller/ExpenseController");
+const { getExpenseList, getExpense, deleteExpense, editExpense, createNewExpense, getReceiptData, getUserExpenseList } = require("../controller/ExpenseController");
 
 const multer = require('multer')
 const storage = multer.diskStorage({
@@ -25,6 +25,11 @@ router.route("/")
 router.route("/:expenseid")
     .get(getExpense)
     .delete(deleteExpense)
-    .put(upload.single('receipt'), editExpense)
+    .put(editExpense)
 
+router.route("/receipt")
+    .post(upload.single('receipt'), getReceiptData)
+
+router.route("/user/:userid")
+    .get(getUserExpenseList)
 module.exports = router;
