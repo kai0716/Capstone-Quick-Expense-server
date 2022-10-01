@@ -14,4 +14,5 @@
 ### Step8: Run `npm run migrate` to create table
 ### Step9: Run `npm run seed` to create data
 ### Step10: Run `npm run dev` to start the server
+### Step11: Open the application on http://localhost:8080
 
